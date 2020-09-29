@@ -1,4 +1,6 @@
-package com.rectangle;
+package shapes;
+
+import shapes.Printer;
 
 public class Rectangle {
     private final double sideA;
