@@ -29,7 +29,7 @@ public class Rectangle {
         printer.print(this.length());
     }
 
-    public void printDetail(RectanglePrinter rectanglePrinter) {
+    public void printRectangle(RectanglePrinter rectanglePrinter) {
         rectanglePrinter.print(this.length(), this.width(), this.area(), this.perimeter());
     }
 }

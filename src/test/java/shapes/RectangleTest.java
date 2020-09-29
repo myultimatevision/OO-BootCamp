@@ -27,7 +27,7 @@ public class RectangleTest {
     void shouldPrintDetailOfTheRectangle() {
         Rectangle rectangle = new Rectangle(3.0, 2.0);
 
-        rectangle.printDetail((length, width, area, perimeter) -> {
+        rectangle.printRectangle((length, width, area, perimeter) -> {
             assertEquals(3.0, length);
             assertEquals(2.0, width);
             assertEquals(6.0, area);
