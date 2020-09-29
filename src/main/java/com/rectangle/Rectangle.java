@@ -1,23 +1,23 @@
 package com.rectangle;
 
 public class Rectangle {
-    private final double length;
-    private final double breadth;
+    private final double sideA;
+    private final double sideB;
 
-    public Rectangle(double length, double breadth) {
-        this.length = length;
-        this.breadth = breadth;
+    public Rectangle(double sideA, double sideB) {
+        this.sideA = sideA;
+        this.sideB = sideB;
     }
 
     public double area() {
-        return this.length * this.breadth;
+        return this.sideA * this.sideB;
     }
 
     public double perimeter() {
-        return 2 * (this.length + this.breadth);
+        return 2 * (this.sideA + this.sideB);
     }
 
-    public double getLength() {
-        return this.length;
+    public void printLength(Printer printer) {
+         printer.print(this.sideA);
     }
 }
