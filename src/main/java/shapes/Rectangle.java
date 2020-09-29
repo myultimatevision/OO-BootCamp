@@ -13,6 +13,10 @@ public class Rectangle {
         return Math.max(this.sideA, this.sideB);
     }
 
+    private double width() {
+        return Math.min(this.sideA, this.sideB);
+    }
+
     public double area() {
         return this.sideA * this.sideB;
     }
@@ -23,5 +27,9 @@ public class Rectangle {
 
     public void printLength(Printer printer) {
         printer.print(this.length());
+    }
+
+    public void printDetail(RectanglePrinter rectanglePrinter) {
+        rectanglePrinter.print(this.length(), this.width(), this.area(), this.perimeter());
     }
 }
