@@ -1,7 +1,5 @@
 package shapes;
 
-import shapes.Printer;
-
 public class Rectangle {
     private final double sideA;
     private final double sideB;
@@ -9,6 +7,10 @@ public class Rectangle {
     public Rectangle(double sideA, double sideB) {
         this.sideA = sideA;
         this.sideB = sideB;
+    }
+
+    private double length() {
+        return Math.max(this.sideA, this.sideB);
     }
 
     public double area() {
@@ -20,6 +22,6 @@ public class Rectangle {
     }
 
     public void printLength(Printer printer) {
-         printer.print(this.sideA);
+        printer.print(this.length());
     }
 }

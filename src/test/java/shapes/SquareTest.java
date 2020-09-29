@@ -7,15 +7,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SquareTest {
     @Test
-    void shouldCalculateAreaOfTheSquare(){
+    void shouldCalculateAreaOfTheSquare() {
         Square square = new Square(2.0);
-        assertEquals(4.0,square.area());
+        assertEquals(4.0, square.area());
     }
 
     @Test
-    void shouldCalculatePerimeterOfTheSquare(){
+    void shouldCalculatePerimeterOfTheSquare() {
         Square square = new Square(2.0);
-        assertEquals(8.0,square.perimeter());
+        assertEquals(8.0, square.perimeter());
     }
 
 }

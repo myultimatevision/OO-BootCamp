@@ -1,7 +1,6 @@
 package shapes;
 
 import org.junit.jupiter.api.Test;
-import shapes.Rectangle;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -23,5 +22,4 @@ public class RectangleTest {
         Rectangle rectangle = new Rectangle(2.0, 1.0);
         rectangle.printLength((length) -> assertEquals(2.0, length));
     }
-
 }
