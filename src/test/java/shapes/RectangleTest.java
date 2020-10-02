@@ -18,12 +18,6 @@ public class RectangleTest {
     }
 
     @Test
-    void shouldPrintLengthOfTheRectangle() {
-        Rectangle rectangle = new Rectangle(2.0, 1.0);
-        rectangle.printLength((length) -> assertEquals(2.0, length));
-    }
-
-    @Test
     void shouldPrintDetailOfTheRectangle() {
         Rectangle rectangle = new Rectangle(3.0, 2.0);
 
@@ -33,5 +27,10 @@ public class RectangleTest {
             assertEquals(6.0, area);
             assertEquals(10.0, perimeter);
         });
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 }
