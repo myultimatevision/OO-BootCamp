@@ -1,20 +1,17 @@
 package parking;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ParkingLot {
     private final int[] spaces;
-    private final Informer informer;
+    private final List<Informer> informers;
     private int nextFreeSpacePosition;
 
     public ParkingLot(int noOfSpaces) {
         this.nextFreeSpacePosition = 0;
         this.spaces = new int[noOfSpaces];
-        informer = null;
-    }
-
-    public ParkingLot(int noOfSpaces, Informer informer) {
-        this.nextFreeSpacePosition = 0;
-        this.spaces = new int[noOfSpaces];
-        this.informer = informer;
+        informers = new ArrayList<>();
     }
 
     private boolean isFilled() {
@@ -30,9 +27,15 @@ public class ParkingLot {
         this.nextFreeSpacePosition++;
 
         if (this.isFilled()) {
-            this.informer.inform(ParkingLotStatus.FILLED);
+            for (Informer informer : this.informers) {
+               informer.inform(ParkingLotStatus.FILLED);
+            }
         }
 
         return this.isFilled() ? ParkingLotStatus.FILLED : ParkingLotStatus.NOT_FILLED;
+    }
+
+    public void addInformer(Informer informer) {
+        this.informers.add(informer);
     }
 }

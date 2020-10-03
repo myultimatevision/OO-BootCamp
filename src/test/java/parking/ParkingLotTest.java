@@ -35,12 +35,18 @@ public class ParkingLotTest {
     }
 
     @Test
-    void shouldInformWhenParkingLotIsFull() throws SpaceNotAvailableException {
-        Informer informer = (parkingStatus) -> {
+    void shouldAddInformersAndInformWhenParkingLotIsFull() throws SpaceNotAvailableException {
+        Informer informer1 = (parkingStatus) -> {
             assertEquals(ParkingLotStatus.FILLED, parkingStatus);
         };
 
-        ParkingLot parkingLot = new ParkingLot(2, informer);
+        Informer informer2 = (parkingStatus) -> {
+            assertEquals(ParkingLotStatus.FILLED, parkingStatus);
+        };
+
+        ParkingLot parkingLot = new ParkingLot(2);
+        parkingLot.addInformer(informer1);
+        parkingLot.addInformer(informer2);
 
         parkingLot.park(1234);
         parkingLot.park(1234);
