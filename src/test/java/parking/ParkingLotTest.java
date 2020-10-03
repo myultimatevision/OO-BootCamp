@@ -6,13 +6,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingLotTest {
     @Test
-    void shouldParkTheCarWhenThereIsASpaceInParkingLot() throws SpaceNotAvailableException {
+    void shouldGiveParkingStatusNotFilledWhenThereIsMoreSpaceLeftInParkingLot() throws SpaceNotAvailableException {
         ParkingLot parkingLot = new ParkingLot(10);
 
         parkingLot.park(1234);
         parkingLot.park(1235);
 
-        assertEquals(2, parkingLot.park(1235));
+        assertEquals(ParkingStatus.NOT_FILLED, parkingLot.park(1235));
     }
 
     @Test
@@ -26,22 +26,11 @@ public class ParkingLotTest {
     }
 
     @Test
-    void shouldGiveTrueWhenTheParkingLotIsFilled() throws SpaceNotAvailableException {
+    void shouldGiveParkingStatusFilledWhenThereIsNoMoreSpaceLeftInParkingLot() throws SpaceNotAvailableException {
         ParkingLot parkingLot = new ParkingLot(2);
 
         parkingLot.park(1234);
-        parkingLot.park(1235);
 
-        assertTrue(parkingLot.isFilled());
-    }
-
-    @Test
-    void shouldGiveFalseWhenTheParkingLotIsNotFilled() throws SpaceNotAvailableException {
-        ParkingLot parkingLot = new ParkingLot(3);
-
-        parkingLot.park(1234);
-        parkingLot.park(1235);
-
-        assertFalse(parkingLot.isFilled());
+        assertEquals(ParkingStatus.FILLED,parkingLot.park(1235));
     }
 }

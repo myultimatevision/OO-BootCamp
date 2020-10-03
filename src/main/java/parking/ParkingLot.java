@@ -9,16 +9,18 @@ public class ParkingLot {
         this.spaces = new int[noOfSpaces];
     }
 
-    public boolean isFilled() {
+    private boolean isFilled() {
         return this.nextFreeSpacePosition == this.spaces.length;
     }
 
-    public int park(int carNumber) throws SpaceNotAvailableException {
+    public ParkingStatus park(int carNumber) throws SpaceNotAvailableException {
         if (this.isFilled()) {
             throw new SpaceNotAvailableException("No Space is Available");
         }
 
         this.spaces[this.nextFreeSpacePosition] = carNumber;
-        return this.nextFreeSpacePosition++;
+        this.nextFreeSpacePosition++;
+
+        return this.isFilled() ? ParkingStatus.FILLED : ParkingStatus.NOT_FILLED;
     }
 }
