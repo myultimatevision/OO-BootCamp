@@ -11,6 +11,6 @@ public class ParkingLotsTest {
         ParkingLot parkingLot2 = new ParkingLot(10);
         ParkingLots parkingLots = new ParkingLots(new ParkingLot[]{parkingLot1,parkingLot2});
 
-        assertEquals(ParkingStatus.NOT_FILLED,parkingLots.parkCar(1234));
+        assertEquals(ParkingLotStatus.NOT_FILLED,parkingLots.parkCar(1234));
     }
 }

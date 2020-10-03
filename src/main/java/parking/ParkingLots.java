@@ -1,13 +1,13 @@
 package parking;
 
 public class ParkingLots {
-    private final ParkingLot [] parkingLots;
+    private final ParkingLot[] parkingLots;
 
     public ParkingLots(ParkingLot[] parkingLots) {
-        this.parkingLots=parkingLots;
+        this.parkingLots = parkingLots;
     }
 
-    public ParkingStatus parkCar(int i) {
-        return ParkingStatus.NOT_FILLED;
+    public ParkingLotStatus parkCar(int i) {
+        return ParkingLotStatus.NOT_FILLED;
     }
 }

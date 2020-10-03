@@ -1,5 +1,5 @@
 package parking;
 
-public enum ParkingStatus {
+public enum ParkingLotStatus {
     NOT_FILLED, FILLED
 }

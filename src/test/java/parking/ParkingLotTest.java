@@ -12,7 +12,7 @@ public class ParkingLotTest {
         parkingLot.park(1234);
         parkingLot.park(1235);
 
-        assertEquals(ParkingStatus.NOT_FILLED, parkingLot.park(1235));
+        assertEquals(ParkingLotStatus.NOT_FILLED, parkingLot.park(1235));
     }
 
     @Test
@@ -31,6 +31,18 @@ public class ParkingLotTest {
 
         parkingLot.park(1234);
 
-        assertEquals(ParkingStatus.FILLED,parkingLot.park(1235));
+        assertEquals(ParkingLotStatus.FILLED,parkingLot.park(1235));
+    }
+
+    @Test
+    void shouldInformWhenParkingLotIsFull() throws SpaceNotAvailableException {
+        Informer informer = (parkingStatus) -> {
+            assertEquals(ParkingLotStatus.FILLED, parkingStatus);
+        };
+
+        ParkingLot parkingLot = new ParkingLot(2, informer);
+
+        parkingLot.park(1234);
+        parkingLot.park(1234);
     }
 }
